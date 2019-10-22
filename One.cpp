@@ -23,7 +23,10 @@ int main()
     for(int i=0;i<res;i++){
         cout<<"Data set: "<<(i+1)<<endl;
         cin>>ins[i]>>cour[i]>>Q1[i]>>Q2[i]>>Q3[i]>>Q4[i]>>Q5[i];
-        while(Q1!=('A'||'E'||'G'||'U'||'P') && Q2!=('A'||'E'||'G'||'U'||'P') && Q3!=('A'||'E'||'G'||'U'||'P') && Q4!=('A'||'E'||'G'||'U'||'P') && Q5!=('A'||'E'||'G'||'U'||'P'))
+        while((Q1[i]!='A'||'E'||'G'||'U'||'P') && (Q2[i]!='A'||'E'||'G'||'U'||'P') && (Q3[i]!='A'||'E'||'G'||'U'||'P') && (Q4[i]!='A'||'E'||'G'||'U'||'P') && (Q5[i]!='A'||'E'||'G'||'U'||'P')){
+           cout<<"Invalid Characters! Only  re-enter either 'A', 'E', 'G', 'U', or 'p' for five questions: "<<endl;
+           cin>>Q1[i]>>Q2[i]>>Q3[i]>>Q4[i]>>Q5[i];
+        }
         if(i>0){
             while(ins[i]!=ins[i-1]){
                 cout<<"Instructor Number doesn't match!"<<endl<<"Please re-enter the Instructor Number: "<<endl;
