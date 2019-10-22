@@ -2,6 +2,7 @@
 #include <fstream>
 
 using namespace std;
+bool test(char,char,char,char,char);
 int total(char);
 double average(int,int);
 int main()
@@ -23,9 +24,11 @@ int main()
     for(int i=0;i<res;i++){
         cout<<"Data set: "<<(i+1)<<endl;
         cin>>ins[i]>>cour[i]>>Q1[i]>>Q2[i]>>Q3[i]>>Q4[i]>>Q5[i];
-        while((Q1[i]!='A'||'E'||'G'||'U'||'P') && (Q2[i]!='A'||'E'||'G'||'U'||'P') && (Q3[i]!='A'||'E'||'G'||'U'||'P') && (Q4[i]!='A'||'E'||'G'||'U'||'P') && (Q5[i]!='A'||'E'||'G'||'U'||'P')){
+        bool tst=test(Q1[i],Q2[i],Q3[i],Q4[i],Q5[i]);
+        while(tst!=true){
            cout<<"Invalid Characters! Only  re-enter either 'A', 'E', 'G', 'U', or 'p' for five questions: "<<endl;
            cin>>Q1[i]>>Q2[i]>>Q3[i]>>Q4[i]>>Q5[i];
+           bool tst=test(Q1[i],Q2[i],Q3[i],Q4[i],Q5[i]);
         }
         if(i>0){
             while(ins[i]!=ins[i-1]){
@@ -55,6 +58,12 @@ int main()
     
     
 return 0;
+}
+bool test(char a,char b,char c,char d,char e){
+    bool x;
+    if((a=='A'||a=='E'||a=='G'||a=='U'||a=='P')&&(b=='A'||b=='E'||b=='G'||b=='U'||b=='P')&&(c=='A'||c=='E'||c=='G'||c=='U'||c=='P')&&(d=='A'||d=='E'||d=='G'||d=='U'||d=='P')&&(e=='A'||e=='E'||e=='G'||e=='U'||e=='P')){
+        x=true;}
+    return x;
 }
     
 int total(char x){
