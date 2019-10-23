@@ -24,11 +24,10 @@ int main()
     for(int i=0;i<res;i++){
         cout<<"Data set: "<<(i+1)<<endl;
         cin>>ins[i]>>cour[i]>>Q1[i]>>Q2[i]>>Q3[i]>>Q4[i]>>Q5[i];
-        bool tst=test(Q1[i],Q2[i],Q3[i],Q4[i],Q5[i]);
-        while(tst!=true){
+        while(test(Q1[i],Q2[i],Q3[i],Q4[i],Q5[i])!=true){
            cout<<"Invalid Characters! Only  re-enter either 'A', 'E', 'G', 'U', or 'p' for five questions: "<<endl;
            cin>>Q1[i]>>Q2[i]>>Q3[i]>>Q4[i]>>Q5[i];
-           bool tst=test(Q1[i],Q2[i],Q3[i],Q4[i],Q5[i]);
+           test(Q1[i],Q2[i],Q3[i],Q4[i],Q5[i]);
         }
         if(i>0){
             while(ins[i]!=ins[i-1]){
@@ -62,7 +61,12 @@ return 0;
 bool test(char a,char b,char c,char d,char e){
     bool x;
     if((a=='A'||a=='E'||a=='G'||a=='U'||a=='P')&&(b=='A'||b=='E'||b=='G'||b=='U'||b=='P')&&(c=='A'||c=='E'||c=='G'||c=='U'||c=='P')&&(d=='A'||d=='E'||d=='G'||d=='U'||d=='P')&&(e=='A'||e=='E'||e=='G'||e=='U'||e=='P')){
-        x=true;}
+        x=true;
+        
+    }
+    else{
+        x=false;
+    }
     return x;
 }
     
