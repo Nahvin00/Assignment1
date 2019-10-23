@@ -5,6 +5,7 @@ using namespace std;
 bool test(char,char,char,char,char);
 int total(char);
 double average(int,int);
+void display(int,int,int,double,double,double,double,double,double);
 int main()
 {
     int total_Q1=0,total_Q2=0,total_Q3=0,total_Q4=0,total_Q5=0;
@@ -53,6 +54,7 @@ int main()
     avg_Q4=average(total_Q4,res);
     avg_Q5=average(total_Q5,res);
     ins_avg=(0.15*avg_Q1)+(0.23*avg_Q2)+(0.08*avg_Q3)+(0.32*avg_Q4)+(0.22*avg_Q5);
+    display(ins[0],cour[0],res,avg_Q1,avg_Q2,avg_Q3,avg_Q4,avg_Q5,ins_avg);
     
     
     
@@ -95,5 +97,20 @@ int total(char x){
 double average(int x, int y){
     int z=x/y;
     return z;
+}
+
+void display (int a, int b, int c, double d, double e, double f, double g, double h, double i) {
+  cout  <<endl<<endl<< "COURSE/INSTRUCTOR EVALUATION SUMMARY" << endl << endl << endl
+        <<"INSTRUCTOR NUMBER: " << a << endl 
+        <<"COURSE NUMBER: " << b << endl
+        <<"NUMBER OF PARTICIPANTS: " << c << endl 
+        <<"AVERAGES:" << endl 
+        <<"QUESTION 1\t" << d << endl 
+        <<"QUESTION 2\t" << e << endl 
+        <<"QUESTION 3\t" << f << endl 
+        <<"QUESTION 4\t" << g << endl 
+        <<"QUESTION 5\t" << h << endl 
+        <<"INSTRUCTOR AVERAGE: " << i << endl <<endl << endl 
+        <<"END OF PROGRAM.";
     
-}    
+} 
