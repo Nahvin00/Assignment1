@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -11,7 +12,7 @@ int main()
 {
     double total_Q1=0,total_Q2=0,total_Q3=0,total_Q4=0,total_Q5=0;
     double avg_Q1=0,avg_Q2=0,avg_Q3=0,avg_Q4=0,avg_Q5=0,ins_avg;
-    ofstream outputFile("studentMarks.txt",ios::out);
+    ofstream outputFile("DataOutput.txt",ios::out);
     if(!outputFile){
         cerr << "File could not be opened \n";
         exit(1);
@@ -117,4 +118,4 @@ void display (int a, int b, int c, double d, double e, double f, double g, doubl
         <<"INSTRUCTOR AVERAGE: " << i << endl <<endl << endl 
         <<"END OF PROGRAM.";
     
-} 
+}
