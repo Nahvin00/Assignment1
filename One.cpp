@@ -1,14 +1,15 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 
 using namespace std;
 bool test(char,char,char,char,char);
-int total(char);
-double average(int,int);
+double total(char);
+double average(double,double);
 void display(int,int,int,double,double,double,double,double,double);
 int main()
 {
-    int total_Q1=0,total_Q2=0,total_Q3=0,total_Q4=0,total_Q5=0;
+    double total_Q1=0,total_Q2=0,total_Q3=0,total_Q4=0,total_Q5=0;
     double avg_Q1=0,avg_Q2=0,avg_Q3=0,avg_Q4=0,avg_Q5=0,ins_avg;
     ofstream outputFile("studentMarks.txt",ios::out);
     if(!outputFile){
@@ -16,6 +17,7 @@ int main()
         exit(1);
     }
     int res;
+    double size=0;
     cout<<"Getting started with Evaluation process."<<endl<<endl
         <<"Enter number of respondent: ";
     cin>>res;
@@ -40,19 +42,20 @@ int main()
                 cin>>cour[i];
             }
         }
-        outputFile<<ins[i]<<"   "<<cour[i]<<" "<<Q1[i]<<" "<<Q2[i]<<" "<<Q3[i]<<" "<<Q4[i]<<" "<<Q5[i]<<endl;
+        outputFile<<ins[i]<<"    "<<cour[i]<<"  "<<Q1[i]<<" "<<Q2[i]<<" "<<Q3[i]<<" "<<Q4[i]<<" "<<Q5[i]<<endl;
         
         total_Q1+=total(Q1[i]);
         total_Q2+=total(Q2[i]);
         total_Q3+=total(Q3[i]);
         total_Q4+=total(Q4[i]);
         total_Q5+=total(Q5[i]);
+        size++;
         }
-    avg_Q1=average(total_Q1,res); 
-    avg_Q2=average(total_Q2,res);
-    avg_Q3=average(total_Q3,res);
-    avg_Q4=average(total_Q4,res);
-    avg_Q5=average(total_Q5,res);
+    avg_Q1=average(total_Q1,size); 
+    avg_Q2=average(total_Q2,size);
+    avg_Q3=average(total_Q3,size);
+    avg_Q4=average(total_Q4,size);
+    avg_Q5=average(total_Q5,size);
     ins_avg=(0.15*avg_Q1)+(0.23*avg_Q2)+(0.08*avg_Q3)+(0.32*avg_Q4)+(0.22*avg_Q5);
     display(ins[0],cour[0],res,avg_Q1,avg_Q2,avg_Q3,avg_Q4,avg_Q5,ins_avg);
     
@@ -72,7 +75,7 @@ bool test(char a,char b,char c,char d,char e){
     return x;
 }
     
-int total(char x){
+double total(char x){
     int z;
         switch (x){
             case 'E':
@@ -94,13 +97,14 @@ int total(char x){
     return z;
 }
 
-double average(int x, int y){
-    int z=x/y;
+double average(double x, double y){
+    double z=x/y;
     return z;
 }
 
 void display (int a, int b, int c, double d, double e, double f, double g, double h, double i) {
-  cout  <<endl<<endl<< "COURSE/INSTRUCTOR EVALUATION SUMMARY" << endl << endl << endl
+  std::cout << std::fixed << std::setprecision(2) <<endl<<endl
+        << "COURSE/INSTRUCTOR EVALUATION SUMMARY" << endl << endl << endl
         <<"INSTRUCTOR NUMBER: " << a << endl 
         <<"COURSE NUMBER: " << b << endl
         <<"NUMBER OF PARTICIPANTS: " << c << endl 
