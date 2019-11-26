@@ -3,7 +3,7 @@
 #include <fstream> //to perform input/output operations on a file
 using namespace std; //to provide a scope to the identifiers
 
-					 //prototype of fuctions
+//prototype of fuctions
 bool test(char, char, char, char, char);
 double total(char);
 double average(double, double);
@@ -57,10 +57,10 @@ int main() //main function
 		outputFile << ins[i] << "    " << cour[i] << "  " << Q1[i] << " " << Q2[i] << " " << Q3[i] << " " << Q4[i] << " " << Q5[i] << endl;
 	}
 	
-	ifstream inputFile("DataOutput.txt");
+	ifstream inputFile("DataOutput.txt");//obtain the data from the created file
     if(!inputFile)
     {
-        cout<<"File could not be opened\n";
+        cout<<"File could not be opened\n";//error message will pop up if file could not be opened
     }
     
     while(inputFile>>insc>>courc>>q[0]>>q[1]>>q[2]>>q[3]>>q[4])
@@ -140,7 +140,8 @@ double average(double x, double y) {
 
 //function to display output
 void display(int a, int b, int c, double d, double e, double f, double g, double h, double i) {
-	std::cout << std::fixed << std::setprecision(2) << endl << endl //set two decimal points for double values
+	ofstream outTwo("EvaluationSummary.txt", ios::out);//store the data to "EvaluationSummary.txt"
+	outTwo<<std::fixed << std::setprecision(2) //set two decimal points for double values
 		<< "COURSE/INSTRUCTOR EVALUATION SUMMARY" << endl << endl << endl
 		<< "INSTRUCTOR NUMBER: " << a << endl
 		<< "COURSE NUMBER: " << b << endl
@@ -151,8 +152,7 @@ void display(int a, int b, int c, double d, double e, double f, double g, double
 		<< "QUESTION 3\t" << f << endl
 		<< "QUESTION 4\t" << g << endl
 		<< "QUESTION 5\t" << h << endl
-		<< "INSTRUCTOR AVERAGE: " << i << endl << endl << endl
-		<< "END OF PROGRAM.";
+		<< "INSTRUCTOR AVERAGE: " << i;
+	cout<<"Summary is stored in File.\nEnd of Program."; 
 
 }
-
