@@ -60,7 +60,8 @@ int main() //main function
 	ifstream inputFile("DataOutput.txt");//obtain the data from the created file
     if(!inputFile)
     {
-        cout<<"File could not be opened\n";//error message will pop up if file could not be opened
+        cerr<<"File could not be opened\n";//error message will pop up if file could not be opened
+        exit(1);
     }
     
     while(inputFile>>insc>>courc>>q[0]>>q[1]>>q[2]>>q[3]>>q[4])
@@ -141,6 +142,11 @@ double average(double x, double y) {
 //function to display output
 void display(int a, int b, int c, double d, double e, double f, double g, double h, double i) {
 	ofstream outTwo("EvaluationSummary.txt", ios::out);//store the data to "EvaluationSummary.txt"
+	if(!outTwo)
+    {
+        cerr<<"File could not be opened\n";//error message will pop up if file could not be opened
+        exit(1);
+    }
 	outTwo<<std::fixed << std::setprecision(2) //set two decimal points for double values
 		<< "COURSE/INSTRUCTOR EVALUATION SUMMARY" << endl << endl << endl
 		<< "INSTRUCTOR NUMBER: " << a << endl
