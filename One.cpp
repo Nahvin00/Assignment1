@@ -18,7 +18,7 @@ int main() //main function
 
 	ofstream outputFile("DataOutput.txt", ios::out); //to output a file named as "DataOutput"
 
-													 //this if condition is to exit program if the file could not be opened
+	//this if condition is to exit program if the file could not be opened
 	if (!outputFile) {
 		cerr << "File could not be opened \n";
 		exit(1);
